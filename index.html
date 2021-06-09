@@ -18,13 +18,13 @@
             <nav class="nav" id="nav">
                 <ul class="menu">
                     <li class="menu__item">
-                        <p class="menu__link select" href="">Zonas y comercios disponibles</p>
+                        <a class="menu__link select">Zonas y comercios disponibles</a>
                     </li>
                     <li class="menu__item">
-                        <p class="menu__link" id='infracciones_menu' href="">Infracciones</p>
+                        <a class="menu__link" id='infracciones_menu'>Infracciones</a>
                     </li>
                     <li class="menu__item">
-                        <p class="menu__link" href="">Información</p>
+                        <a class="menu__link">Información</a>
                     </li>
                 </ul>
             </nav>
@@ -48,12 +48,17 @@
             <input type="text" name="" id="inputPatente"> <span class="barra"></span>
 
             <button id="consultarPatenteBtn" type="button"> Consultar</button>
+
+            <p id="listaInfracciones"></p>
+
             <!--/form-->
         </div>
     </div>
 
 
+
     <script src="js/config.js"></script>
+    <script src="js/doms.js"></script>
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/auxiliares.js"></script>
     <script src="js/consultarAPI.js"></script>

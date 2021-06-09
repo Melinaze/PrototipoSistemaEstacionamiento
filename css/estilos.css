@@ -128,7 +128,7 @@ h2,h3,h4,h5,h6 {
 	z-index: 1;
 	top: 50%;
 	left: 35%;
-	width: 10rem;
+	width: 30rem;
 	background-color: aqua;
 	visibility: hidden;
 }
