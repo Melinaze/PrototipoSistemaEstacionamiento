@@ -12,12 +12,13 @@ btnInfracciones.addEventListener("click", (e) => {
 
 var consultarPatenteBtn = document.getElementById("consultarPatenteBtn");
 var inputPatente = document.getElementById("inputPatente");
-consultarPatenteBtn.addEventListener("click", (e) => {
+
+
+consultarPatenteBtn.addEventListener("click", () => {
     if (inputPatente.value.length != 0) {
-        // btnInfracciones.innerHTML += `<p>${
-        // )}</p>`;
         console.log("a");
-        //console.log(requestInfracciones(inputPatente.value));
-        getInfracciones()
+        var listaDeInfracciones = [];
+        listaDeInfracciones = getInfraccionesByPatente(inputPatente.value.toUpperCase());
+        console.log(listaDeInfracciones);
     }
 });
