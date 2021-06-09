@@ -1,0 +1,124 @@
+
+@import url(https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap);
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&display=swap');
+* {
+	box-sizing: border-box;
+}
+
+img{
+	display: block;
+	max-width:100%;
+}
+
+/* fuente del body */
+body {
+	margin: 0;
+	font-family: 'Open Sans', sans-serif;
+	background-color: black; 
+	
+}
+/* Fuente titulo principal */
+h1{
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	letter-spacing: 1.5px;
+	font-size: 60px;
+	
+}
+
+
+/* fuente de los titulos */
+h2,h3,h4,h5,h6 {
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	letter-spacing:1.5px;
+	text-align: center;
+	color:rgb(142, 181, 218);
+}
+
+/* --------------------------- estilos del header ---------------- */
+.header {
+	height: 60px;
+	display: flex;
+	justify-content: center;
+}
+.contenedor{
+	display: flex;
+	justify-content: space-between;
+}
+
+.logo{
+	margin: 00px;
+	color: #fff;
+}
+
+.icon-menu{
+	display: block;
+	width: 40px;
+	height: 40px;
+	font-size: 30px;
+	background: rgb(155, 188, 194);
+	text-align: center;
+	line-height: 45px;
+	border-radius: 5px;
+	margin-left: auto;
+	color: #fff;
+	/* Accion al boton */
+	cursor: pointer;
+}
+/* ------------------- Estilos del menu ------------ */
+.nav{
+	position: absolute;
+	top: 80px;
+	left: 0%; 
+	width: 100%;
+	transition: all 0.4s;
+}
+
+.menu {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.menu__link{
+	display: block;
+	padding: 15px;
+	background: #93bbaa;
+	text-decoration: none;
+	color: #fff;
+}
+
+/* Evento para pasar el mousse */
+.menu__link:hover, .select{
+	background: white;
+	color: #0f0f0f;
+}
+
+*.ocultar {
+	left: 100%;
+}
+
+
+
+/* ---------- Estilos del banner ----------*/
+.banner {
+	margin-top: 00px;
+	position: relative;
+	z-index: -100;
+	text-align: center;
+}
+
+.banner .contenedor{
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%); 
+	width: 110%;
+	color: #fff;
+	text-align: center;
+}
+
+.banner__txt {
+	display: block;
+}
+
+
