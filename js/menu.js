@@ -18,6 +18,6 @@ consultarPatenteBtn.addEventListener("click", (e) => {
         // )}</p>`;
         console.log("a");
         //console.log(requestInfracciones(inputPatente.value));
-        console.log(getInfracciones(inputPatente.value.toUpperCase()))
+        getInfracciones()
     }
 });
