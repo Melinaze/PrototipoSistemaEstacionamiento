@@ -122,3 +122,19 @@ h2,h3,h4,h5,h6 {
 }
 
 
+/* ------------ Cartel Patente -------------*/
+#cartelPatente{
+	position: absolute;
+	z-index: 1;
+	top: 50%;
+	left: 35%;
+	width: 10rem;
+	background-color: aqua;
+	visibility: hidden;
+}
+
+/* ---------- Estilos del formulario----------*/
+.formulario{
+	display: flex;
+	flex-direction: column;
+}
