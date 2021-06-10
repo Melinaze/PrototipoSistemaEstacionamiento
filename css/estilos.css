@@ -27,11 +27,11 @@ h1{
 
 
 /* fuente de los titulos */
-h2,h3,h4,h5,h6 {
+h2,h3,h5,h6 {
 	font-family: 'Yanone Kaffeesatz', sans-serif;
 	letter-spacing:1.5px;
 	text-align: center;
-	color:rgb(142, 181, 218);
+	color:rgb(16, 63, 107);
 }
 
 /* --------------------------- estilos del header ---------------- */
@@ -123,18 +123,37 @@ h2,h3,h4,h5,h6 {
 
 
 /* ------------ Cartel Patente -------------*/
+
 #cartelPatente{
 	position: absolute;
 	z-index: 1;
-	top: 50%;
+	top: 40%;
 	left: 35%;
 	width: 30rem;
-	background-color: aqua;
 	visibility: hidden;
+	background: #93bbaa;
+    padding: 100px 0;
+    border-radius: 10px;
 }
 
 /* ---------- Estilos del formulario----------*/
 .formulario{
 	display: flex;
 	flex-direction: column;
+}
+
+/* ---------- Estilos del boton----------*/
+button {
+    font-family:'Open Sans', sans-serif ;
+    background: #c2daeb;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    display: block;
+    width: 30%;
+    margin: 5px auto;
+    color: rgb(3, 4, 20);
+    height: 30px;
+    font-size: 15px;
+    cursor: pointer;
 }
