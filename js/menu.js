@@ -7,12 +7,9 @@ btnInfracciones.addEventListener("click", (e) => {
     cambiarVisibilidadDOM(cartelPatente);
 });
 
-
-
 consultarPatenteBtn.addEventListener("click", () => {
     listaInfracciones.innerHTML = "";
     if (inputPatente.value.length != 0) {
-        console.log("a");
         var listaDeInfracciones = [];
         listaDeInfracciones = getInfraccionesByPatente(
             inputPatente.value.toUpperCase()

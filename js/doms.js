@@ -7,3 +7,5 @@ const consultarPatenteBtn = document.getElementById("consultarPatenteBtn");
 const inputPatente = document.getElementById("inputPatente");
 
 const listaInfracciones = document.getElementById("listaInfracciones");
+
+const mapaDiv = document.getElementById("map");

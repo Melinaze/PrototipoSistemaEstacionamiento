@@ -127,12 +127,13 @@ h2,h3,h5,h6 {
 #cartelPatente{
 	position: absolute;
 	z-index: 1;
-	top: 40%;
+	top: 20%;
+	border-color: #0f0f0f 1px;
 	left: 35%;
 	width: 30rem;
 	visibility: hidden;
 	background: #93bbaa;
-    padding: 100px 0;
+    padding: 50px 0;
     border-radius: 10px;
 }
 
@@ -157,3 +158,10 @@ button {
     font-size: 15px;
     cursor: pointer;
 }
+
+/* ---------- mapa----------*/
+
+#map { 
+	width: 30rem;
+	height: 20rem; 
+	}
