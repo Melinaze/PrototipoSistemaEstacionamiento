@@ -9,3 +9,10 @@ L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 L.control.scale().addTo(map);
 
 const drawer = Drawer();
+
+//Poligono para marcar las zonas
+var polygon = L.polygon([
+    [-34.5429, -58.7121],
+    [-34.5067, -58.7064],
+    [-34.4237,  -58.5794]
+]).addTo(map);
