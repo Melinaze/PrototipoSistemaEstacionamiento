@@ -9,7 +9,7 @@ Trabajo Práctico de Ingeniería de Software. Consiste en implementar una aplica
 - [ ] Agregar la informacion del deposito en la lista.
 
 ### MAPA GENERAL 
-- [ ] Definir las zonas con colores. 
+- [X] Definir las zonas con colores. 
 - [ ] Formato más de menu, barra de menu al costado que diga lo que se esta viendo.
 - [ ] Marcador de estacionamiento libre con codigo.
 - [ ] Cluster de marcadores.
