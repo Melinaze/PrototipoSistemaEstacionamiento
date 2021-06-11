@@ -9,20 +9,23 @@ const acarreos_id = "/acarreos/"; // hay que poner el numero de infracción
 var getInfraccionesByPatente = function (patente) {
     routaURL = url + "/" + patente + infracciones;
     console.log(routaURL);
-    var lista = [];
+    listaInfracciones.innerText = "";
     fetch(routaURL)
         .then((res) => res.json())
         .then((data) => {
             data.infracciones.forEach((infraccion) => {
                 var remolc = "";
+
                 if (infraccion.existeAcarreo) {
                     remolc = " remolcado";
+                    cambiarVisibilidadDOM(document.getElementById("map"));
                     getDepositoByPatente(patente, infraccion.id);
                 }
-                listaInfracciones.innerHTML += `Id: ${infraccion.id}   Lugar: ${infraccion.direccionRegistrada} Monto: ${infraccion.montoAPagar} ${remolc}<br>`;
+                // hacer otr aconsulta por el tipo de infraccion
+
+                listaInfracciones.innerText += `Id: ${infraccion.id}   Lugar: ${infraccion.direccionRegistrada} Monto: ${infraccion.montoAPagar} ${remolc}<br>`;
             });
         });
-    return lista;
 };
 
 var getDepositoByPatente = function (patente, id) {

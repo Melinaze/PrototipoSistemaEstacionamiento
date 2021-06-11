@@ -5,15 +5,22 @@ btnMenu.addEventListener("click", function () {
 btnInfracciones.addEventListener("click", (e) => {
     listaInfracciones.innerHTML = "";
     cambiarVisibilidadDOM(cartelPatente);
+    document.getElementById("map").style.visibility = "hidden";
 });
 
 consultarPatenteBtn.addEventListener("click", () => {
     listaInfracciones.innerHTML = "";
+
     if (inputPatente.value.length != 0) {
-        var listaDeInfracciones = [];
-        listaDeInfracciones = getInfraccionesByPatente(
-            inputPatente.value.toUpperCase()
+        getInfraccionesByPatente(inputPatente.value.toUpperCase());
+        console.log(
+            `Con innerHTML ${
+                document.getElementById("listaInfracciones").innerHTML.trim()
+                    .length === 0
+            }`
         );
-        console.log(listaDeInfracciones);
+
+        if (listaInfracciones.innerHTML == "") {
+        }
     }
 });
