@@ -34,7 +34,6 @@ var getDepositoByPatente = function (patente, id) {
         .then((data) => {
             if (ultimoMarker != undefined) {
                 map.removeLayer(ultimoMarker);
-                console.log("Ultimo marker distino de null");
             }
             var lat = data.acarreo.deposito.ubicacion.lat;
             var long = data.acarreo.deposito.ubicacion.lon;
@@ -42,7 +41,7 @@ var getDepositoByPatente = function (patente, id) {
             var descripcion = `Telefono ${data.acarreo.deposito.telefono} Horarios: ${data.acarreo.deposito.horarios}`;
             var depo = punto(nombre, lat, long, descripcion, "deposito");
             map.setView([lat, long], 14);
-            drawer.drawLocationInMap(depo, map);
+            ultimoMarker = drawer.drawLocationInMap(depo, map);
         });
 };
 

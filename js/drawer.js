@@ -30,6 +30,8 @@ var Drawer = function () {
         )
             .bindPopup(info)
             .addTo(map);
+
+        return ultimoMarker;
     }
 };
 
