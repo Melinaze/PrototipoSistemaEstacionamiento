@@ -5,3 +5,7 @@ function cambiarVisibilidadDOM(dom) {
         dom.style.visibility = "hidden";
     }
 }
+
+function cambiarValorImput(inmput) {
+    document.getElementById("inputPatente").value = ""
+}

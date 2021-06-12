@@ -1,11 +1,14 @@
-btnMenu.addEventListener("click", function () {
+btnMenu.addEventListener("click", function() {
     nav.classList.toggle("ocultar");
 });
 
 btnInfracciones.addEventListener("click", (e) => {
     listaInfracciones.innerHTML = "";
     cambiarVisibilidadDOM(cartelPatente);
+    cambiarValorImput(inputPatente)
     document.getElementById("map").style.visibility = "hidden";
+
+
 });
 
 consultarPatenteBtn.addEventListener("click", () => {
@@ -13,14 +16,18 @@ consultarPatenteBtn.addEventListener("click", () => {
 
     if (inputPatente.value.length != 0) {
         getInfraccionesByPatente(inputPatente.value.toUpperCase());
-        console.log(
-            `Con innerHTML ${
+        delay(800).then(() => {
+            console.log(
+                `Con innerHTML ${
                 document.getElementById("listaInfracciones").innerHTML.trim()
                     .length === 0
             }`
-        );
+            );
 
-        if (listaInfracciones.innerHTML == "") {
-        }
+            if (listaInfracciones.innerHTML == "") {
+                listaInfracciones.innerText += "La patente no registra infracciones";
+                document.getElementById("map").style.visibility = "hidden";
+            }
+        });
     }
 });
