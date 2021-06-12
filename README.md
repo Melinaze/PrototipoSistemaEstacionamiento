@@ -4,7 +4,7 @@ Trabajo Práctico de Ingeniería de Software. Consiste en implementar una aplica
 ###  Tareas
 
 ### CONSULTA DE INFRACCIONES
-- [ ] Mostrar que no hay resultado cuando la patente ingresada no tiene infracciones.
+- [X] Mostrar que no hay resultado cuando la patente ingresada no tiene infracciones.
 - [ ] Cambiar el formato a lista. 
 - [ ] Agregar la informacion del deposito en la lista.
 
