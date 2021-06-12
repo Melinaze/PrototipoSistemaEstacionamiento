@@ -13,7 +13,8 @@ var est = punto(
     "estacionamiento libre",
     "estacionamiento"
 );
-var depo = punto("El deposito", -34.5067, -58.703, "pancheria", "deposito");
+
+
 
 drawer.drawLocationInMap(elReyDelPancho, map);
 drawer.drawLocationInMap(est, map);
