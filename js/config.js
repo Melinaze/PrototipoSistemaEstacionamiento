@@ -3,9 +3,3 @@ var Config = {
     url: heroku
 
 }
-
-/*function load() {
-    fetch(url);
-}
-
-load()*/
