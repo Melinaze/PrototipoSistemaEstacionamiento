@@ -1,21 +1,55 @@
+var listaComercios = [];
+//var markers = L.markerClusterGroup();
+var markerGroup = L.markerClusterGroup({
+        iconCreateFunction: function(cluster) {
+            return L.divIcon({ html: '<b class = "leaflet-div-icon2">' + cluster.getChildCount() + '</b>' });
+        }
+    }),
+    marker;
 
 var elReyDelPancho = punto(
-    "El rey del pancho",
-    -34.5067,
-    -58.705,
+    "El rey del pancho", -34.5067, -58.705,
     "pancheria",
     "comercio"
 );
-var est = punto(
-    "Estacionamiento",
-    -34.5067,
-    -58.706,
-    "estacionamiento libre",
-    "estacionamiento"
+var dia = punto(
+    "Supermercado Dia", -34.5060, -58.710,
+    "supermercado",
+    "comercio"
 );
 
 
 
-drawer.drawLocationInMap(elReyDelPancho, map);
-drawer.drawLocationInMap(est, map);
-drawer.drawLocationInMap(depo, map);
+
+
+var setComercios = () => {
+    listaComercios.push(elReyDelPancho);
+    listaComercios.push(dia);
+}
+
+
+var dibujarComercios = () => {
+    for (let i = 0; i < listaComercios.length; i++) {
+        markerGroup.addLayer(
+            drawer.drawLocationInMap(listaComercios[i], map));
+        console.log(markerGroup);
+        //setComercioEnMenu(listaComercios[i]);
+    }
+    map.addLayer(markerGroup);
+}
+
+/*var setComercioEnMenu = (comercio) => {
+
+    var li = comercio;
+
+    li.id = nuevoLi;
+
+    li.innerHTML = "<span onclick='eliminar(this)'>X</span>" + nuevoLi;
+
+    document.getElementById("menu").appendChild(li);
+}*/
+setComercios();
+dibujarComercios();
+
+
+// validacion de marker markerGroup._needsClustering[0]._popup._content == "El rey del pancho - pancheria"

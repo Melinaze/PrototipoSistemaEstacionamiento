@@ -1,14 +1,16 @@
 var map = L.map("map").setView([-34.5067, -58.7064], 14);
 
 L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution:
-        'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
     maxZoom: 18,
 }).addTo(map);
 
 L.control.scale().addTo(map);
 
 const drawer = Drawer();
+
+
+
 
 //Poligono para marcar las zonas verdes más centricas
 /* var polygon = L.polygon([
@@ -19,7 +21,7 @@ const drawer = Drawer();
 polygon.setStyle({fillColor: 'green'});
 polygon.setStyle({color: 'green'});
 polygon.setStyle({fillOpacity: 0.5}); // transparencia de relleno
-*/ 
+*/
 
 //Poligono para marcar las zonas azules menos centricas
 /* var polygon2 = L.polygon([
@@ -32,5 +34,3 @@ polygon2.setStyle({color: 'blue'});
 polygon2.setStyle({fillOpacity: 0.5}); // transparencia de relleno
 
 */
-
-

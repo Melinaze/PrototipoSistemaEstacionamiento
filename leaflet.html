@@ -1,34 +1,40 @@
-<!DOCTYPE html><html>
+<!DOCTYPE html>
+<html>
 <meta charset="utf-8" />
+
 <head>
-	<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
-  <link rel="stylesheet" href="css/estilosMapa.css">
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@0.7.3/dist/leaflet.css" />+
+    <link rel="stylesheet" href="css/estilosMapa.css">
 
 
- <style>
-  #map { 
-  width: 1000px;
-  height: 700px; }
- </style>
- 
- </head>
-  <body>
-    <a  id="volverAMainBtn" class="menu__link select" href="index.html">Volver al menu principal</a>
-   <div id="map"></div>
-   <div id="right">
-    <div>
-        <h2> Menú </h2>
-        <ul id="menu">
-        </ul>
-    </div>
-  </header>
- </body> 
+    <style>
+        #map {
+            width: 1000px;
+            height: 700px;
+        }
+    </style>
 
- <script src="js/drawer.js"></script>
- <script src="js/punto.js"></script>
- <script src="js/inicializarMapa.js"></script>
- <script src="js/comercios.js"></script>
+</head>
+
+<body>
+    <a id="volverAMainBtn" class="menu__link select" href="index.html">Volver al menu principal</a>
+    <div id="map"></div>
+    <div id="right">
+        <div>
+            <h2> Menú </h2>
+            <ul id="menu">
+            </ul>
+        </div>
+        </header>
+</body>
+
+<script src="js/drawer.js"></script>
+<script src="js/punto.js"></script>
+<script src="js/inicializarMapa.js"></script>
+<script src="js/comercios.js"></script>
+<script src="js/lugaresEstacionamiento.js"></script>
 
 
- </html>
+</html>
