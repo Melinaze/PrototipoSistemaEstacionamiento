@@ -17,17 +17,24 @@ var getInfraccionesByPatente = function (patente) {
     fetch(routaURL)
         .then((res) => res.json())
         .then((data) => {
+            listaInfracciones.innerHTML = tablaColumnas();
             data.infracciones.forEach((infraccion) => {
-                var remolc = "";
+                var remolc = "No";
 
                 if (infraccion.existeAcarreo) {
-                    remolc = " remolcado";
+                    remolc = "Si";
                     tieneAcarreo = true;
                     getDepositoByPatente(patente, infraccion.id);
                 }
                 // hacer otr aconsulta por el tipo de infraccion
 
-                listaInfracciones.innerHTML += `Id: ${infraccion.id}  Lugar: ${infraccion.direccionRegistrada} Monto: ${infraccion.montoAPagar} ${remolc}<br>`;
+                // listaInfracciones.innerHTML += `Id: ${infraccion.id}  Lugar: ${infraccion.direccionRegistrada} Monto: ${infraccion.montoAPagar} ${remolc}<br>`;
+                listaInfracciones.innerHTML += tablaInfraccion(
+                    infraccion.id,
+                    infraccion.direccionRegistrada,
+                    infraccion.montoAPagar,
+                    remolc
+                );
                 finalizoProm = true;
                 if (finalizoProm && tieneAcarreo) {
                     document.getElementById("map").style.visibility = "initial";

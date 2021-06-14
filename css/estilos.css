@@ -165,3 +165,44 @@ button {
 	width: 30rem;
 	height: 20rem; 
 	}
+
+table, th, td {
+	border: 1px solid black;
+}
+.idTable{
+	width: 30px;
+}
+
+.direccionTable{
+	width: 200px;
+}
+
+.montoTable{
+	width: 100px;
+}
+
+.remolcadoTable{
+	width: 100px;
+}
+.collapsible {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #ccc;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
