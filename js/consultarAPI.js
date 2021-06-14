@@ -8,7 +8,7 @@ var finalizoProm; // hay que poner el numero de infracción
 
 // var drawer = Drawer();
 
-var getInfraccionesByPatente = function(patente) {
+var getInfraccionesByPatente = function (patente) {
     tieneAcarreo = false;
     finalizoProm = false;
     routaURL = url + "/" + patente + infracciones;
@@ -32,14 +32,12 @@ var getInfraccionesByPatente = function(patente) {
                 if (finalizoProm && tieneAcarreo) {
                     document.getElementById("map").style.visibility = "initial";
                 }
-                getTipoInfraccionesByID(infraccion.tipoInfraccion)
+                getTipoInfraccionesByID(infraccion.tipoInfraccion);
             });
         });
 };
 
-
-
-var getDepositoByPatente = function(patente, id) {
+var getDepositoByPatente = function (patente, id) {
     //infraccionesweb.herokuapp.com/api/ABC123/acarreos/42
     routaURL = url + "/" + patente + acarreos_id + `${id}`;
     console.log(routaURL);
@@ -56,6 +54,7 @@ var getDepositoByPatente = function(patente, id) {
             var depo = punto(nombre, lat, long, descripcion, "deposito");
             map.setView([lat, long], 14);
             ultimoMarker = drawer.drawLocationInMap(depo, map);
+            map.addLayer(ultimoMarker);
         });
 };
 
@@ -66,7 +65,7 @@ async function getTipoInfraccionesByID(idInfrac) {
         .then((res) => res.json())
         .then((data) => {
             var descripcion = `Tipo de Infracccion: ${data.descripcion}`;
-            return descripcion
+            return descripcion;
         });
 }
 
