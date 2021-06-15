@@ -19,11 +19,13 @@ function cambiarValorImput(inmput) {
 
 function tablaInfraccion(id, direccionRegistrada, montoAPagar, remolcado) {
     var colapsable;
+    var divColappsable = "";
     if (remolcado == "Si") {
         colapsable = "class = collapsible";
+        divColappsable = `<div id= "remolque${id}" class="content"></div>`;
     }
     var file = `<tr id="filaTabla${id}" ${colapsable}><td ${classId}>${id}</td><td ${classDir}>${direccionRegistrada}</td><td ${classMont}>${montoAPagar}</td><td ${classRem}>${remolcado}</td></tr>`;
-    var tableTags = `<table>${file}</table>`;
+    var tableTags = `<table>${file}</table>${divColappsable}`;
     return tableTags;
 }
 
@@ -33,4 +35,32 @@ function tablaColumnas() {
     return tableTags;
 }
 
-function agregar() {}
+function colapsadorDeRemolque(id) {
+    // let idColap = id;
+    document.getElementById(`filaTabla${id}`).addEventListener("click", () => {
+        // this.classList.toggle("active");
+        var content = document.getElementById(`remolque${id}`);
+        if (content.style.display === "block") {
+            content.style.display = "none";
+        } else {
+            content.style.display = "block";
+        }
+    });
+}
+
+function remolqueColumnas() {
+    var columns = `<tr><th ${classId}>Id.</th><th ${classDir}>Lugar</th><th ${classMont}>Monto</th><th ${classRem}>Remolcado</th></tr>`;
+    var tableTags = `<table>${columns}</table>`;
+    return tableTags;
+}
+
+function agregarInfoRemolque(id, nombre, telefono, horarios) {
+    // this.classList.toggle("active");
+    var content = document.getElementById(`remolque${id}`);
+
+    var columns = `<tr><td >Nombre</td><td>Telefono</td><td >Horarios</td></tr>`;
+
+    var file = `<tr><td >${nombre}</td><td>${telefono}</td><td >${horarios}</td></tr>`;
+
+    content.innerHTML = `<table>${columns} ${file}</table>`;
+}
