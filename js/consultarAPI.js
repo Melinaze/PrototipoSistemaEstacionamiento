@@ -4,7 +4,35 @@ const tiposInfracciones_id = "tiposInfraccion/";
 const depositos_id = "depositos/";
 const acarreos_id = "/acarreos/";
 var tieneAcarreo;
-var finalizoProm; 
+var finalizoProm;
+
+const tipoDeInfraccion = (id, tipo) => {
+    this.id = id;
+    this.tipo = tipo;
+    this.getId = () => id;
+    this.getTipo = () => tipo;
+    return { getId, getTipo };
+};
+
+const tiposInfraccionArray = [];
+fetch(url + "/" + tiposInfracciones_id)
+    .then((res) => res.json())
+    .then((data) => {
+        data.tipos.forEach((tipo) => {
+            tiposInfraccionArray.push(
+                tipoDeInfraccion(tipo.id, tipo.descripcion)
+            );
+        });
+    });
+
+const obtenerTipoInfraccion = (id) => {
+    for (let i = 0; i < tiposInfraccionArray.length; i++) {
+        if (id == tiposInfraccionArray[i].getId()) {
+            return tiposInfraccionArray[i].getTipo();
+        }
+    }
+    return tiposInfraccionArray[-1].getTipo();
+};
 
 var getInfraccionesByPatente = function (patente) {
     tieneAcarreo = false;
@@ -22,8 +50,12 @@ var getInfraccionesByPatente = function (patente) {
                     remolc = "Si";
                     tieneAcarreo = true;
                 }
-                
 
+                console.log(
+                    `Tipo de infraccion ${obtenerTipoInfraccion(
+                        infraccion.tipoInfraccion
+                    )}`
+                );
                 listaInfracciones.innerHTML += tablaInfraccion(
                     infraccion.id,
                     infraccion.direccionRegistrada,
@@ -78,5 +110,3 @@ async function getTipoInfraccionesByID(idInfrac) {
             return descripcion;
         });
 }
-
-
