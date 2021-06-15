@@ -34,7 +34,7 @@ const obtenerTipoInfraccion = (id) => {
     return tiposInfraccionArray[-1].getTipo();
 };
 
-var getInfraccionesByPatente = function (patente) {
+var getInfraccionesByPatente = function(patente) {
     tieneAcarreo = false;
     finalizoProm = false;
     routaURL = url + "/" + patente + infracciones;
@@ -76,7 +76,7 @@ var getInfraccionesByPatente = function (patente) {
         });
 };
 
-var getDepositoByPatente = function (patente, id) {
+var getDepositoByPatente = function(patente, id) {
     //infraccionesweb.herokuapp.com/api/ABC123/acarreos/42
     rutaURL = url + "/" + patente + acarreos_id + `${id}`;
     console.log(rutaURL);

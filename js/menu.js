@@ -1,4 +1,4 @@
-btnMenu.addEventListener("click", function () {
+btnMenu.addEventListener("click", function() {
     nav.classList.toggle("ocultar");
 });
 
@@ -10,6 +10,7 @@ btnInfracciones.addEventListener("click", (e) => {
 });
 
 consultarPatenteBtn.addEventListener("click", () => {
+    document.getElementById("map").style.visibility = "hidden";
     listaInfracciones.innerHTML = "";
 
     if (inputPatente.value.length != 0) {
@@ -23,7 +24,7 @@ consultarPatenteBtn.addEventListener("click", () => {
                 }`
             );
 
-            if (listaInfracciones.innerHTML == "") {
+            if (listaInfracciones.innerHTML.lengthn == 223) {
                 listaInfracciones.innerText +=
                     "La patente no registra infracciones";
                 document.getElementById("map").style.visibility = "hidden";

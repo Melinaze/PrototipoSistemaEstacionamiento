@@ -12,7 +12,7 @@ const punto = (nombre, lat, long, descripcion, tipo) => {
     this.esComercio = () => tipo == "comercio";
     this.esEstacionamiento = () => tipo == "estacionamiento";
     this.esDeposito = () => tipo == "deposito";
-    this.esMiAuto = () => tipo == "Mi Auto";
+    this.esMiAuto = () => tipo == "Estacionamiento activo";
     this.equals = (punto) => {
         return (
             this.getLat() == punto.getLat() &&
