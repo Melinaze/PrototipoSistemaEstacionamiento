@@ -13,23 +13,44 @@ var markerGroupEstacionamiento = L.markerClusterGroup({
     }),
     marker;
 
-var est = punto(
-    "Estacionamiento",
-    -34.5067,
-    -58.709,
-    "estacionamiento libre",
+var estacionamiento1 = punto(
+    "COD100",
+    -34.5509,
+    -58.7034,
+    "LIBRE",
+    "estacionamiento"
+);
+var estacionamiento2 = punto(
+    "COD501",
+    -34.5511,
+    -58.7029,
+    "LIBRE",
     "estacionamiento"
 );
 
-var est2 = punto(
-    "Supermercado Dia",
-    -34.506,
-    -58.71,
-    "Cod1234",
+var estacionamiento3 = punto(
+    "COD102",
+    -34.5509,
+    -58.7034,
+    "LIBRE",
     "estacionamiento"
 );
 
-var miAuto = punto("Auto Estacionado", -34.5067, -58.71, "Mi Auto", "Mi Auto");
+
+var estacionamiento4 = punto(
+    "COD105 ",
+    -34.5459,
+    -58.7014,
+    "LIBRE",
+    "estacionamiento"
+);
+
+var miAuto = punto(
+	"Auto Estacionado", 
+	-34.5509,
+    	-58.7034,
+	"Mi Auto", 
+	"Estacionamiento activo");
 
 var miAutoMarker = drawer.drawLocationInMap(miAuto, map);
 
@@ -42,8 +63,10 @@ const agregarMarkersEstacionamiento = () => {
 };
 
 var setEstacionamientos = () => {
-    listaLugarsLibres.push(est);
-    listaLugarsLibres.push(est2);
+    listaLugarsLibres.push(estacionamiento1);
+    listaLugarsLibres.push(estacionamiento2);
+    listaLugarsLibres.push(estacionamiento3);
+    listaLugarsLibres.push(estacionamiento4);
 
     agregarMarkersEstacionamiento();
 };
@@ -74,14 +97,14 @@ document
             setEstacionamientoEnMenu(listaLugarsLibres[i]);
         }
         dibujarEstacionamientos(); //habria q modificar un por el dibujar, o separarlo del drawer pq
-        document.getElementById("labelMenu").innerHTML = "Estacionamientos";
+        document.getElementById("labelMenu").innerHTML = "Estacionamientos libres";
     });
 
 document.getElementById("btnMostrarMiAuto").addEventListener("click", () => {
     document.getElementById("listaMenu").innerHTML = "";
     document.getElementById("labelMenu").innerHTML = "";
     map.addLayer(miAutoMarker);
-    document.getElementById("listaMenu").innerHTML = "Argregar direccion";
+    document.getElementById("listaMenu").innerHTML = "San José 1515";
 });
 
 function find_li(contenido) {

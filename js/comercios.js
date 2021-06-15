@@ -13,24 +13,43 @@ var markerGroupComercios = L.markerClusterGroup({
     }),
     marker;
 
-var elReyDelPancho = punto(
-    "El rey del pancho",
-    -34.5067,
-    -58.705,
+var comercio1 = punto(
+    "El rey del pancho - Kiosco",
+    -34.5509,
+    -58.7034,
     "pancheria",
     "comercio"
 );
-var dia = punto(
-    "Supermercado Dia",
-    -34.506,
-    -58.71,
+var comercio2 = punto(
+    "Supermercado dia - supermercado",
+    -34.5511,
+    -58.7029,
     "supermercado",
     "comercio"
 );
 
+var comercio3 = punto(
+    "Mundo nuevo - Libreria",
+    -34.5509,
+    -58.7034,
+    "Libreria",
+    "comercio"
+);
+
+
+var comercio4 = punto(
+    "Casa E - Libreria ",
+    -34.5459,
+    -58.7014,
+    "Libreria",
+    "comercio"
+);
+
 var setComercios = () => {
-    listaComercios.push(elReyDelPancho);
-    listaComercios.push(dia);
+    listaComercios.push(comercio3);
+    listaComercios.push(comercio1);
+    listaComercios.push(comercio2);
+    listaComercios.push(comercio4);
     agregarMarkersComercio();
 };
 
