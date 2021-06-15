@@ -15,14 +15,13 @@ var markerGroupEstacionamiento = L.markerClusterGroup({
 
 var estacionamiento1 = punto(
     "COD100",
-    -34.5512,
-    -58.7034,
+    -34.549804, -58.716324,
     "LIBRE",
     "estacionamiento"
 );
 var estacionamiento2 = punto(
     "COD501",
-    -34.5511,
+    -34.5611,
     -58.7029,
     "LIBRE",
     "estacionamiento"
@@ -30,8 +29,8 @@ var estacionamiento2 = punto(
 
 var estacionamiento3 = punto(
     "COD102",
-    -34.5509,
-    -58.7034,
+    -34.5459,
+    -58.7014,
     "LIBRE",
     "estacionamiento"
 );
@@ -39,8 +38,7 @@ var estacionamiento3 = punto(
 
 var estacionamiento4 = punto(
     "COD105 ",
-    -34.5510,
-    -58.7026,
+    -34.565707, -58.693199,
     "LIBRE",
     "estacionamiento"
 );
@@ -72,6 +70,8 @@ var setEstacionamientos = () => {
 };
 
 var dibujarEstacionamientos = () => {
+    map.removeLayer(markerGroupComercios);
+    map.removeLayer(miAutoMarker);
     map.addLayer(markerGroupEstacionamiento);
    L.markerClusterGroup({ polygonOptions: {color: 'red'} });
 };
@@ -102,6 +102,8 @@ document
     });
 
 document.getElementById("btnMostrarMiAuto").addEventListener("click", () => {
+    map.removeLayer(markerGroupEstacionamiento);
+    map.removeLayer(markerGroupComercios);
     document.getElementById("listaMenu").innerHTML = "";
     document.getElementById("labelMenu").innerHTML = "";
     map.addLayer(miAutoMarker);

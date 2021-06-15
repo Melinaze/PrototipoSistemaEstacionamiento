@@ -24,7 +24,8 @@ consultarPatenteBtn.addEventListener("click", () => {
                 }`
             );
 
-            if (listaInfracciones.innerHTML.lengthn == 223) {
+            if (listaInfracciones.innerHTML == "") {
+                
                 listaInfracciones.innerText +=
                     "La patente no registra infracciones";
                 document.getElementById("map").style.visibility = "hidden";

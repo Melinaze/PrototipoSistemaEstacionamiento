@@ -14,9 +14,8 @@ var markerGroupComercios = L.markerClusterGroup({
     marker;
 
 var comercio1 = punto(
-    "El rey del pancho - Kiosco",
-    -34.5509,
-    -58.7034,
+    "El principe del pancho - Kiosco",
+    -34.548804, -58.715324,
     "Callao 4820 - Horarios de atención: 10hs a 20hs",
     "comercio"
 );
@@ -30,8 +29,7 @@ var comercio2 = punto(
 
 var comercio3 = punto(
     "Mundo nuevo - Libreria",
-    -34.5509,
-    -58.7034,
+    -34.555581, -58.706807,
     "Marcos Paz 1920 - Horarios de atención: 08hs a 18hs",
     "comercio"
 );
@@ -45,11 +43,27 @@ var comercio4 = punto(
     "comercio"
 );
 
+var comercio5 = punto(
+    "Disco - Supermercado ",
+    -34.564707, -58.694199,
+    "Letonia 4545 - Horarios de atención: 09hs a 18hs",
+    "comercio"
+);
+
+var comercio6 = punto(
+    "Grido - Heladeria",
+    -34.555520, -58.689771,
+    "Letonia 4545 - Horarios de atención: 09hs a 18hs",
+    "comercio"
+);
+
 var setComercios = () => {
     listaComercios.push(comercio3);
     listaComercios.push(comercio1);
     listaComercios.push(comercio2);
     listaComercios.push(comercio4);
+    listaComercios.push(comercio5);
+    listaComercios.push(comercio6);
     agregarMarkersComercio();
 };
 
@@ -63,6 +77,8 @@ var agregarMarkersComercio = () => {
     }
 };
 var dibujarComercios = () => {
+    map.removeLayer(markerGroupEstacionamiento);
+    map.removeLayer(miAutoMarker);
     map.addLayer(markerGroupComercios);
 };
 

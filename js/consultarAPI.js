@@ -42,7 +42,9 @@ var getInfraccionesByPatente = function(patente) {
     fetch(routaURL)
         .then((res) => res.json())
         .then((data) => {
+            
             listaInfracciones.innerHTML = tablaColumnas();
+            
             data.infracciones.forEach((infraccion) => {
                 var remolc = "No";
 
@@ -50,12 +52,13 @@ var getInfraccionesByPatente = function(patente) {
                     remolc = "Si";
                     tieneAcarreo = true;
                 }
-
+                
                 console.log(
                     `Tipo de infraccion ${obtenerTipoInfraccion(
                         infraccion.tipoInfraccion
                     )}`
                 );
+               
                 listaInfracciones.innerHTML += tablaInfraccion(
                     infraccion.id,
                     infraccion.direccionRegistrada,
