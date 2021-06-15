@@ -4,9 +4,7 @@ const tiposInfracciones_id = "tiposInfraccion/";
 const depositos_id = "depositos/";
 const acarreos_id = "/acarreos/";
 var tieneAcarreo;
-var finalizoProm; // hay que poner el numero de infracción
-
-// var drawer = Drawer();
+var finalizoProm; 
 
 var getInfraccionesByPatente = function (patente) {
     tieneAcarreo = false;
@@ -24,7 +22,7 @@ var getInfraccionesByPatente = function (patente) {
                     remolc = "Si";
                     tieneAcarreo = true;
                 }
-                // hacer otr aconsulta por el tipo de infraccion
+                
 
                 listaInfracciones.innerHTML += tablaInfraccion(
                     infraccion.id,
@@ -81,4 +79,4 @@ async function getTipoInfraccionesByID(idInfrac) {
         });
 }
 
-//getInfracciones('ABC123')
+

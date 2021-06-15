@@ -15,7 +15,7 @@ var markerGroupEstacionamiento = L.markerClusterGroup({
 
 var estacionamiento1 = punto(
     "COD100",
-    -34.5509,
+    -34.5512,
     -58.7034,
     "LIBRE",
     "estacionamiento"
@@ -39,8 +39,8 @@ var estacionamiento3 = punto(
 
 var estacionamiento4 = punto(
     "COD105 ",
-    -34.5459,
-    -58.7014,
+    -34.5510,
+    -58.7026,
     "LIBRE",
     "estacionamiento"
 );
@@ -73,6 +73,7 @@ var setEstacionamientos = () => {
 
 var dibujarEstacionamientos = () => {
     map.addLayer(markerGroupEstacionamiento);
+   L.markerClusterGroup({ polygonOptions: {color: 'red'} });
 };
 
 var setEstacionamientoEnMenu = (estacionamiento) => {
@@ -104,7 +105,7 @@ document.getElementById("btnMostrarMiAuto").addEventListener("click", () => {
     document.getElementById("listaMenu").innerHTML = "";
     document.getElementById("labelMenu").innerHTML = "";
     map.addLayer(miAutoMarker);
-    document.getElementById("listaMenu").innerHTML = "San José 1515";
+    document.getElementById("listaMenu").innerHTML = " DirecciÃ³n auto estacionado : San Jose 1515";
 });
 
 function find_li(contenido) {
