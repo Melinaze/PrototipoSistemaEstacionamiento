@@ -2,6 +2,7 @@ const classId = "class = idTable";
 const classDir = "class = direccionTable";
 const classMont = "class = montoTable";
 const classRem = "class = remolcadoTable";
+const classTipo = "class = tipoTable";
 
 function cambiarVisibilidadDOM(dom) {
     if (dom.style.visibility == "hidden") {
@@ -17,20 +18,26 @@ function cambiarValorImput(inmput) {
 
 // listaInfracciones.innerHTML += `Id: ${infraccion.id}  Lugar: ${infraccion.direccionRegistrada} Monto: ${infraccion.montoAPagar} ${remolc}<br>`;
 
-function tablaInfraccion(id, direccionRegistrada, montoAPagar, remolcado) {
+function tablaInfraccion(
+    id,
+    direccionRegistrada,
+    montoAPagar,
+    remolcado,
+    tipo
+) {
     var colapsable;
     var divColappsable = "";
     if (remolcado == "Si") {
         colapsable = "class = collapsible";
         divColappsable = `<div id= "remolque${id}" class="content"></div>`;
     }
-    var file = `<tr id="filaTabla${id}" ${colapsable}><td ${classId}>${id}</td><td ${classDir}>${direccionRegistrada}</td><td ${classMont}>${montoAPagar}</td><td ${classRem}>${remolcado}</td></tr>`;
+    var file = `<tr id="filaTabla${id}" ${colapsable}><td ${classId}>${id}</td><td ${classDir}>${direccionRegistrada}</td><td ${classMont}>${montoAPagar}</td><td ${classRem}>${remolcado}</td> <td ${classTipo}>${tipo}</td></tr>`;
     var tableTags = `<table>${file}</table>${divColappsable}`;
     return tableTags;
 }
 
 function tablaColumnas() {
-    var columns = `<tr><th ${classId}>Id.</th><th ${classDir}>Lugar</th><th ${classMont}>Monto</th><th ${classRem}>Remolcado</th></tr>`;
+    var columns = `<tr><th ${classId}>Id.</th><th ${classDir}>Lugar</th><th ${classMont}>Monto</th><th ${classRem}>Remolcado</th><th ${classTipo}>Tipo de infracción</th></tr>`;
     var tableTags = `<table>${columns}</table>`;
     return tableTags;
 }
@@ -58,7 +65,7 @@ function agregarInfoRemolque(id, nombre, telefono, horarios) {
     // this.classList.toggle("active");
     var content = document.getElementById(`remolque${id}`);
 
-    var columns = `<tr><td >Nombre</td><td>Telefono</td><td >Horarios</td></tr>`;
+    var columns = `<tr><td >Remolcador</td><td>Telefono</td><td >Horarios</td></tr>`;
 
     var file = `<tr><td >${nombre}</td><td>${telefono}</td><td >${horarios}</td></tr>`;
 

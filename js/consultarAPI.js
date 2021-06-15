@@ -60,7 +60,8 @@ var getInfraccionesByPatente = function (patente) {
                     infraccion.id,
                     infraccion.direccionRegistrada,
                     infraccion.montoAPagar,
-                    remolc
+                    remolc,
+                    obtenerTipoInfraccion(infraccion.tipoInfraccion)
                 );
 
                 if (tieneAcarreo) {
