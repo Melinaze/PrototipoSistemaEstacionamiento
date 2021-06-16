@@ -1,4 +1,6 @@
 var listaComercios = [];
+var arrayLi = [];
+var arrayMarker = [];
 
 //var markers = L.markerClusterGroup();
 var markerGroupComercios = L.markerClusterGroup({
@@ -68,14 +70,14 @@ var setComercios = () => {
 };
 
 var agregarMarkersComercio = () => {
+    var a;
     for (let i = 0; i < listaComercios.length; i++) {
-        markerGroupComercios.addLayer(
-            drawer.drawLocationInMap(listaComercios[i], map)
-        );
-        // console.log(markerGroup);
-        //setComercioEnMenu(listaComercios[i]);
+        a = drawer.drawLocationInMap(listaComercios[i], map)
+        markerGroupComercios.addLayer(a);
+        arrayMarker.push(a);
     }
 };
+
 var dibujarComercios = () => {
     map.removeLayer(markerGroupEstacionamiento);
     map.removeLayer(miAutoMarker);
@@ -85,15 +87,36 @@ var dibujarComercios = () => {
 var setComercioEnMenu = (comercio) => {
     // var li = comercio;
     var li = document.createElement("li");
-
-    //li.id = nuevoLi;
-    // console.log(comercio.getNombre())
     li.innerHTML = comercio.getNombre();
-
+    arrayLi.push(li);
     document.getElementById("listaMenu").appendChild(li);
 };
 
 setComercios();
+
+
+listaMenu.addEventListener("click", (e)=> {
+    //console.log(e.target.firstChild.nodeValue)
+    var click = e.target.firstChild.nodeValue
+    var indice;
+    var lat;
+    var long;
+    for (let i = 0; i < arrayLi.length; i++) {
+        if (click == arrayLi[i].firstChild.nodeValue){
+            indice = i
+        }
+
+    }
+    lat = listaComercios[indice].getLat()
+    long = listaComercios[indice].getLong()
+    map.setView([lat, long], 15); 
+    arrayMarker[indice].openPopup()
+
+})
+
+//document.getElementById("listaMenu").addEventListener("click", ()=> {
+  //  console.log("hola me cliqueaon")
+//})
 
 // validacion de marker markerGroup._needsClustering[0]._popup._content == "El rey del pancho - pancheria"
 
