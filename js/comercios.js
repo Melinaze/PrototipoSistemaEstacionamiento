@@ -75,7 +75,6 @@ var dibujarComercios = () => {
 };
 
 var setComercioEnMenu = (comercio) => {
-    // var li = comercio;
     var li = document.createElement("li");
     li.innerHTML = comercio.getNombre();
     arrayLi.push(li);
@@ -86,7 +85,6 @@ setComercios();
 
 
 listaMenu.addEventListener("click", (e) => {
-    //console.log(e.target.firstChild.nodeValue)
     var click = e.target.firstChild.nodeValue
     var indice;
     var lat;
@@ -104,11 +102,6 @@ listaMenu.addEventListener("click", (e) => {
 
 })
 
-//document.getElementById("listaMenu").addEventListener("click", ()=> {
-//  console.log("hola me cliqueaon")
-//})
-
-// validacion de marker markerGroup._needsClustering[0]._popup._content == "El rey del pancho - pancheria"
 
 btnMostrarComercios.addEventListener("click", () => {
     document.getElementById("listaMenu").innerHTML = "";
@@ -116,12 +109,11 @@ btnMostrarComercios.addEventListener("click", () => {
     for (let i = 0; i < listaComercios.length; i++) {
         setComercioEnMenu(listaComercios[i]);
     }
-    dibujarComercios(); //habria q modificar un por el dibujar, o separarlo del drawer pq
+    dibujarComercios();
     document.getElementById("labelMenu").innerHTML = "Comercios";
 });
 
 function find_li(contenido) {
-    //no funca muy bien
     var el = document.getElementById("menu").getElementsByTagName("li");
     for (var i = 0; i < el.length; i++) {
         if (el[i].innerHTML == contenido) return false;

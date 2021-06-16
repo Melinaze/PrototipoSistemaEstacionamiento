@@ -55,8 +55,8 @@ var getInfraccionesByPatente = function(patente) {
 
                     console.log(
                         `Tipo de infraccion ${obtenerTipoInfraccion(
-                        infraccion.tipoInfraccion
-                    )}`
+                            infraccion.tipoInfraccion
+                        )}`
                     );
 
                     listaInfracciones.innerHTML += tablaInfraccion(
@@ -64,7 +64,9 @@ var getInfraccionesByPatente = function(patente) {
                         infraccion.direccionRegistrada,
                         infraccion.montoAPagar,
                         remolc,
-                        obtenerTipoInfraccion(infraccion.tipoInfraccion)
+                        obtenerTipoInfraccion(infraccion.tipoInfraccion),
+                        formatearFecha(infraccion.fechaHoraRegistro),
+                        formatearHora(infraccion.fechaHoraRegistro)
                     );
 
                     if (tieneAcarreo) {
@@ -72,12 +74,14 @@ var getInfraccionesByPatente = function(patente) {
                     }
                     finalizoProm = true;
                     if (finalizoProm && tieneAcarreo) {
-                        document.getElementById("map").style.visibility = "initial";
+                        document.getElementById("map").style.visibility =
+                            "initial";
                     }
                 });
             } else {
                 listaInfracciones.innerText +=
                     "La patente no registra infracciones";
+                //document.getElementById("map").style.visibility = "hidden";
             }
         });
 };
