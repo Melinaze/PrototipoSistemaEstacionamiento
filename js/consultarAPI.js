@@ -34,7 +34,7 @@ const obtenerTipoInfraccion = (id) => {
     return tiposInfraccionArray[-1].getTipo();
 };
 
-var getInfraccionesByPatente = function(patente) {
+var getInfraccionesByPatente = function (patente) {
     tieneAcarreo = false;
     finalizoProm = false;
     routaURL = url + "/" + patente + infracciones;
@@ -55,8 +55,8 @@ var getInfraccionesByPatente = function(patente) {
 
                     console.log(
                         `Tipo de infraccion ${obtenerTipoInfraccion(
-                        infraccion.tipoInfraccion
-                    )}`
+                            infraccion.tipoInfraccion
+                        )}`
                     );
 
                     listaInfracciones.innerHTML += tablaInfraccion(
@@ -64,7 +64,9 @@ var getInfraccionesByPatente = function(patente) {
                         infraccion.direccionRegistrada,
                         infraccion.montoAPagar,
                         remolc,
-                        obtenerTipoInfraccion(infraccion.tipoInfraccion)
+                        obtenerTipoInfraccion(infraccion.tipoInfraccion),
+                        formatearFecha(infraccion.fechaHoraRegistro),
+                        formatearHora(infraccion.fechaHoraRegistro) //infraccion.fechaHoraRegistro
                     );
 
                     if (tieneAcarreo) {
@@ -72,7 +74,8 @@ var getInfraccionesByPatente = function(patente) {
                     }
                     finalizoProm = true;
                     if (finalizoProm && tieneAcarreo) {
-                        document.getElementById("map").style.visibility = "initial";
+                        document.getElementById("map").style.visibility =
+                            "initial";
                     }
                     getTipoInfraccionesByID(infraccion.tipoInfraccion);
                 });
@@ -84,7 +87,7 @@ var getInfraccionesByPatente = function(patente) {
         });
 };
 
-var getDepositoByPatente = function(patente, id) {
+var getDepositoByPatente = function (patente, id) {
     //infraccionesweb.herokuapp.com/api/ABC123/acarreos/42
     rutaURL = url + "/" + patente + acarreos_id + `${id}`;
     console.log(rutaURL);

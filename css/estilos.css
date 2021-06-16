@@ -185,6 +185,13 @@ table, th, td {
 	width: 100px;
 }
 
+.fechaTable{
+	width: 80px;
+}
+.horaTable{
+	width: 70px;
+}
+
 .tipoTable{
 	width: 200px;
 }
