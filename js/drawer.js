@@ -30,11 +30,6 @@ var Drawer = function() {
                 }
             )
             .bindPopup(info)
-
-        /*var cluster = L.markerClusterGroup();
-        cluster.addLayer(ultimoMarker);
-        console.log(cluster);*/
-
         return ultimoMarker;
     }
 };

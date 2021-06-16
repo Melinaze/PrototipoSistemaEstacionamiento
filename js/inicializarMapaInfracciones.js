@@ -8,7 +8,3 @@ L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 L.control.scale().addTo(map);
 
 const drawer = Drawer();
-
-
-
-

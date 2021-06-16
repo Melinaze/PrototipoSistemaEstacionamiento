@@ -1,11 +1,10 @@
 var listaLugarsLibres = [];
 
-//var markers = L.markerClusterGroup();
+
 var markerGroupEstacionamiento = L.markerClusterGroup({
-        iconCreateFunction: function (cluster) {
+        iconCreateFunction: function(cluster) {
             return L.divIcon({
-                html:
-                    '<b class = "leaflet-div-icon2">' +
+                html: '<b class = "leaflet-div-icon2">' +
                     cluster.getChildCount() +
                     "</b>",
             });
@@ -14,41 +13,33 @@ var markerGroupEstacionamiento = L.markerClusterGroup({
     marker;
 
 var estacionamiento1 = punto(
-    "COD100",
-    -34.549804, -58.716324,
+    "COD100", -34.549804, -58.716324,
     "LIBRE",
     "estacionamiento"
 );
 var estacionamiento2 = punto(
-    "COD501",
-    -34.5611,
-    -58.7029,
+    "COD501", -34.5611, -58.7029,
     "LIBRE",
     "estacionamiento"
 );
 
 var estacionamiento3 = punto(
-    "COD102",
-    -34.5459,
-    -58.7014,
+    "COD102", -34.5459, -58.7014,
     "LIBRE",
     "estacionamiento"
 );
 
 
 var estacionamiento4 = punto(
-    "COD105 ",
-    -34.565707, -58.693199,
+    "COD105 ", -34.565707, -58.693199,
     "LIBRE",
     "estacionamiento"
 );
 
 var miAuto = punto(
-	"Auto Estacionado", 
-	-34.5509,
-    	-58.7034,
-	"Mi Auto", 
-	"Estacionamiento activo");
+    "Auto Estacionado", -34.5509, -58.7034,
+    "Mi Auto",
+    "Estacionamiento activo");
 
 var miAutoMarker = drawer.drawLocationInMap(miAuto, map);
 
@@ -73,21 +64,15 @@ var dibujarEstacionamientos = () => {
     map.removeLayer(markerGroupComercios);
     map.removeLayer(miAutoMarker);
     map.addLayer(markerGroupEstacionamiento);
-   L.markerClusterGroup({ polygonOptions: {color: 'red'} });
+    L.markerClusterGroup({ polygonOptions: { color: 'red' } });
 };
 
 var setEstacionamientoEnMenu = (estacionamiento) => {
-    // var li = comercio;
     var li = document.createElement("li");
-
-    //li.id = nuevoLi;
-    // console.log(comercio.getNombre())
     li.innerHTML = estacionamiento.getNombre();
 
     document.getElementById("listaMenu").appendChild(li);
 };
-
-// validacion de marker markerGroup._needsClustering[0]._popup._content == "El rey del pancho - pancheria"
 
 document
     .getElementById("btnMostrarEstacionamientos")
@@ -97,7 +82,7 @@ document
         for (let i = 0; i < listaLugarsLibres.length; i++) {
             setEstacionamientoEnMenu(listaLugarsLibres[i]);
         }
-        dibujarEstacionamientos(); //habria q modificar un por el dibujar, o separarlo del drawer pq
+        dibujarEstacionamientos();
         document.getElementById("labelMenu").innerHTML = "Estacionamientos libres";
     });
 
@@ -111,7 +96,6 @@ document.getElementById("btnMostrarMiAuto").addEventListener("click", () => {
 });
 
 function find_li(contenido) {
-    //no funca muy bien
     var el = document.getElementById("menu").getElementsByTagName("li");
     for (var i = 0; i < el.length; i++) {
         if (el[i].innerHTML == contenido) return false;
@@ -119,4 +103,3 @@ function find_li(contenido) {
     return true;
 }
 setEstacionamientos();
-// dibujarEstacionamientos();

@@ -61,9 +61,7 @@ function tablaColumnas() {
 }
 
 function colapsadorDeRemolque(id) {
-    // let idColap = id;
     document.getElementById(`filaTabla${id}`).addEventListener("click", () => {
-        // this.classList.toggle("active");
         var content = document.getElementById(`remolque${id}`);
         if (content.style.display === "block") {
             content.style.display = "none";
@@ -85,7 +83,6 @@ function remolqueColumnas() {
 }
 
 function agregarInfoRemolque(id, nombre, telefono, horarios) {
-    // this.classList.toggle("active");
     var content = document.getElementById(`remolque${id}`);
 
     var columns = `<tr>
@@ -102,12 +99,9 @@ function agregarInfoRemolque(id, nombre, telefono, horarios) {
 
     content.innerHTML = `<table>${columns} ${file}</table>`;
 }
-
-const formatearHora = (fecha) => {
-    let fechaParseada = Date.parse(fecha);
-    date = new Date(fechaParseada);
-    var hora = `${date.getHours()}:${date.getMinutes() + 1} Hs.`;
-    return hora;
+const pasarAGMT3 = (horaGMT) => {
+    let hora = parseInt(horaGMT.slice(0, 2)) - 3;
+    return hora.toString() + horaGMT.slice(2, -3);
 };
 
 const formatearFecha = (fecha) => {
@@ -115,4 +109,9 @@ const formatearFecha = (fecha) => {
     date = new Date(fechaParseada);
     var dmy = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
     return dmy;
+};
+
+const formatearHora = (fecha) => {
+    var horaGMT = fecha.slice(-12, -4);
+    return pasarAGMT3(horaGMT) + " Hs.";
 };
