@@ -23,13 +23,6 @@ consultarPatenteBtn.addEventListener("click", () => {
                         .innerHTML.trim().length === 0
                 }`
             );
-
-            if (listaInfracciones.innerHTML == "") {
-                
-                listaInfracciones.innerText +=
-                    "La patente no registra infracciones";
-                document.getElementById("map").style.visibility = "hidden";
-            }
         });
     }
 });

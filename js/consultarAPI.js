@@ -42,40 +42,45 @@ var getInfraccionesByPatente = function(patente) {
     fetch(routaURL)
         .then((res) => res.json())
         .then((data) => {
-            
-            listaInfracciones.innerHTML = tablaColumnas();
-            
-            data.infracciones.forEach((infraccion) => {
-                var remolc = "No";
+            if (data.infracciones.length > 0) {
+                listaInfracciones.innerHTML = tablaColumnas();
 
-                if (infraccion.existeAcarreo) {
-                    remolc = "Si";
-                    tieneAcarreo = true;
-                }
-                
-                console.log(
-                    `Tipo de infraccion ${obtenerTipoInfraccion(
+                data.infracciones.forEach((infraccion) => {
+                    var remolc = "No";
+
+                    if (infraccion.existeAcarreo) {
+                        remolc = "Si";
+                        tieneAcarreo = true;
+                    }
+
+                    console.log(
+                        `Tipo de infraccion ${obtenerTipoInfraccion(
                         infraccion.tipoInfraccion
                     )}`
-                );
-               
-                listaInfracciones.innerHTML += tablaInfraccion(
-                    infraccion.id,
-                    infraccion.direccionRegistrada,
-                    infraccion.montoAPagar,
-                    remolc,
-                    obtenerTipoInfraccion(infraccion.tipoInfraccion)
-                );
+                    );
 
-                if (tieneAcarreo) {
-                    getDepositoByPatente(patente, infraccion.id);
-                }
-                finalizoProm = true;
-                if (finalizoProm && tieneAcarreo) {
-                    document.getElementById("map").style.visibility = "initial";
-                }
-                getTipoInfraccionesByID(infraccion.tipoInfraccion);
-            });
+                    listaInfracciones.innerHTML += tablaInfraccion(
+                        infraccion.id,
+                        infraccion.direccionRegistrada,
+                        infraccion.montoAPagar,
+                        remolc,
+                        obtenerTipoInfraccion(infraccion.tipoInfraccion)
+                    );
+
+                    if (tieneAcarreo) {
+                        getDepositoByPatente(patente, infraccion.id);
+                    }
+                    finalizoProm = true;
+                    if (finalizoProm && tieneAcarreo) {
+                        document.getElementById("map").style.visibility = "initial";
+                    }
+                    getTipoInfraccionesByID(infraccion.tipoInfraccion);
+                });
+            } else {
+                listaInfracciones.innerText +=
+                    "La patente no registra infracciones";
+                //document.getElementById("map").style.visibility = "hidden";
+            }
         });
 };
 
